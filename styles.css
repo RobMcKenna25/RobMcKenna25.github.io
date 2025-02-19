@@ -3,6 +3,7 @@
     --secondary-color: #005f73;
     --text-color: #333;
     --light-bg: #f8f9fa;
+    --dark-bg: #15253e;
 }
 
 * {
@@ -80,7 +81,7 @@ body {
     justify-content: center;
     text-align: center;
     background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)),
-                url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80');
+                url('Forth.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -174,7 +175,7 @@ body {
 }
 
 .footer {
-    background: var(--primary-color);
+    background: var(--dark-bg);
     color: white;
     text-align: center;
     padding: 2rem;
@@ -223,6 +224,69 @@ body {
     margin-bottom: 1rem;
 }
 
+.servicesContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.servicesSection {
+    position: relative;
+    width: 90vw;
+    max-width: 800px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.servicesSection.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.servicesTop {
+    top: 10vh;
+    height: 100px;
+    background-color: #003366;
+    clip-path: polygon(10% 0, 90% 0, 80% 100%, 20% 100%);
+}
+
+.servicesMiddle {
+    top: calc(10vh + 100px);
+    height: 150px;
+    background-color: #1d5791;
+    clip-path: polygon(80% 0, 20% 0, 35% 100%, 65% 100%);
+}
+
+.servicesBottom {
+    top: calc(10vh + 250px);
+    height: 150px;
+    background-color: #3f7fbf;
+    clip-path: polygon(65% 0, 35% 0, 50% 100%, 50% 100%);
+}
+
+.servicesExplainer {
+    position: relative;
+    margin-top: 40vh;
+    width: 80%;
+    max-width: 600px;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
 @media (max-width: 768px) {
     .header {
         height: 160px; /* More space for stacked navigation */
@@ -252,5 +316,16 @@ body {
     
     .cta-button {
         padding: 1rem 2rem;
+    }
+
+    .servicesSection {
+        font-size: 10px;
+    }
+
+    .servicesExplainer {
+        width: 90%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        margin-top: 60vh;
     }
 } 

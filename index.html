@@ -30,6 +30,23 @@
             <a href="contact.html" class="cta-button">Contact Us</a>
         </div>
     </section>
+    <div class="servicesContainer" id="services">
+        <div class="servicesSection servicesTop" data-scroll-point="200">
+            Strategic<br>
+            Financial<br>
+            Oversight
+        </div>
+        <div class="servicesSection servicesMiddle" data-scroll-point="400">
+            Operational<br>
+            & Compliance<br>
+            Support
+        </div>
+        <div class="servicesSection servicesBottom" data-scroll-point="600">
+            Transactional<br>
+            Support
+        </div>
+        <div class="servicesExplainer" id="explainer-text">Scroll down to explore our services</div>
+    </div>
 
     <section class="bottom-cta">
         <a href="approach.html" class="cta-button">Learn About Our Approach</a>
@@ -49,6 +66,58 @@
                 });
             });
         });
+
+        // Services scroll animation
+        const servicesContainer = document.querySelector('.servicesContainer');
+        const servicesSections = document.querySelectorAll('.servicesSection');
+        const explainerText = document.getElementById('explainer-text');
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateServices() {
+            const containerRect = servicesContainer.getBoundingClientRect();
+            const containerTop = containerRect.top + window.scrollY;
+            const scrollPosition = window.scrollY;
+
+            // Only show services when container is in view
+            if (scrollPosition >= containerTop){ //&& scrollPosition < containerTop + containerRect.height) {
+                servicesSections.forEach(section => {
+                    const scrollPoint = parseInt(section.dataset.scrollPoint);
+                    if (scrollPosition > containerTop + scrollPoint) {
+                        section.classList.add('visible');
+                    } else {
+                        section.classList.remove('visible');
+                    }
+                });
+
+                // Show explainer text when all sections are visible
+                if (scrollPosition > containerTop + 600) {
+                    explainerText.style.opacity = '1';
+                } else {
+                    explainerText.style.opacity = '0';
+                }
+            } else {
+                // Hide all sections when container is not in view
+                servicesSections.forEach(section => section.classList.remove('visible'));
+                explainerText.style.opacity = '0';
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            lastScrollY = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateServices();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Initial check
+        updateServices();
     </script>
 </body>
 </html>

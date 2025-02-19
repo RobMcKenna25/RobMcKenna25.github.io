@@ -15,7 +15,7 @@
             height: 300vh;
             overflow-x: hidden;
         }
-        .container {
+        .servicesContainer {
             position: relative;
             width: 100%;
             display: flex;
@@ -23,7 +23,7 @@
             align-items: center;
             flex-direction: column;
         }
-        .section {
+        .servicesSection {
             position: fixed;
             width: 90vw;
             max-width: 800px;
@@ -63,8 +63,8 @@
             transition: opacity 0.5s ease-in-out;
         }
         @media (max-width: 768px) {
-            .section {
-                font-size: 16px;
+            .servicesSection {
+                font-size: 10px;
             }
             .explainer {
                 width: 90%;
@@ -97,7 +97,7 @@
     <script>
         window.addEventListener("scroll", function () {
             let scrollPosition = window.scrollY;
-            let maxScroll = 400; // Adjust this value based on how much space you need for the explainer
+            let maxScroll = 100; // Adjust this value based on how much space you need for the explainer
             
             // Only animate if we haven't scrolled past maxScroll
             let translateY = Math.min(scrollPosition, maxScroll);
