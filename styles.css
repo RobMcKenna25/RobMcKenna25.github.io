@@ -25,6 +25,7 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
+    height: 120px; /* Fixed height for header */
 }
 
 .nav {
@@ -33,6 +34,7 @@ body {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    height: 100%;
 }
 
 .logo {
@@ -40,7 +42,14 @@ body {
     font-weight: bold;
 }
 
+.logo img {
+    height:100px;
+    width: auto;
+}
+
 .logo a {
+    display: flex;
+    align-items: center;
     color: white;
     text-decoration: none;
 }
@@ -65,7 +74,7 @@ body {
 }
 
 .hero {
-    height: 100vh;
+    height: calc(100vh - 120px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,6 +87,7 @@ body {
     color: white;
     padding: 2rem;
     position: relative;
+    margin-top: 120px; /* Same as header height */
 }
 
 .hero-content {
@@ -174,10 +184,10 @@ body {
 .page-content {
     padding-top: 80px; /* Account for fixed header */
     min-height: calc(100vh - 80px);
+    margin-top: 120px; /* Same as header height */
 }
 
 .content-wrapper {
-    max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
 }
@@ -195,7 +205,38 @@ body {
     padding: 1.5rem 4rem;
 }
 
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.approach-item {
+    padding: 2rem;
+    background: var(--light-bg);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.approach-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
+    .header {
+        height: 160px; /* More space for stacked navigation */
+    }
+
+    .hero,
+    .page-content {
+        margin-top: 160px;
+    }
+
+    .hero {
+        height: calc(100vh - 160px);
+    }
+
     .nav {
         flex-direction: column;
         gap: 1rem;
