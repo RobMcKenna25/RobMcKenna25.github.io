@@ -229,9 +229,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
     min-height: 80vh;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .servicesSection {
@@ -339,12 +339,13 @@ body {
     transition: all 2s ease-in-out;
     text-align: center;
     color: var(--text-color);
-    padding: 0 20px;
 }
 
 .textContainer.visible {
     opacity: 1;
     max-height: 1000px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
 }

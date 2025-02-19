@@ -56,16 +56,36 @@
             Support
         </div>
         <div class="textContainer textContainerMiddle">
-            <h2>Middle</h2>
-            <p>Middle</p>
+            <div class="service-content">
+                <p class="service-intro">Managing financial operations across borders comes with complex regulatory requirements and administrative challenges. Forthway Consulting ensures your business remains compliant and efficient as it scales between the UK, US, and beyond by providing expert support in payroll, tax compliance, and financial operations.</p>
+                
+                <h3>How We Help</h3>
+                <ul class="service-list">
+                    <li>Payroll & HR Compliance</li>
+                    <li>Regulatory & Tax Compliance</li>
+                    <li>Banking & Financial Operations</li>
+                </ul>
+
+                <p class="service-outro">We handle the complexity so you can focus on growing your business with confidence, knowing your financial operations are structured, compliant, and optimized.</p>
+            </div>
         </div>
         <div class="servicesSection servicesBottom">
             Transactional<br>
             Support
         </div>
         <div class="textContainer textContainerBottom">
-            <h2>Bottom</h2>
-            <p>Bottom</p>
+            <div class="service-content">
+                <p class="service-intro">When expanding your business internationally, short-term financial tasks can quickly become overwhelming. Forthway Consulting provides hands-on support for essential financial operations, ensuring compliance and accuracy without disrupting your day-to-day business.</p>
+                
+                <h3>How We Help</h3>
+                <ul class="service-list">
+                    <li>Tax & Compliance Filings</li>
+                    <li>Payroll & Employee Setup</li>
+                    <li>Short-Term Financial Projects</li>
+                </ul>
+
+                <p class="service-outro">We handle the immediate financial tasks that need urgent attention, so you can focus on expanding with confidence, knowing the details are covered. Can't see what you need just reach out!</p>
+            </div>
         </div>
     </div>
 
@@ -111,20 +131,22 @@
                 if (wasElementInViewport(section)) {
                     section.classList.add('visible');
                 } else {
-                    //  Do nothing }
+                    //  Do nothing
                 }
             });
 
-            // Check if servicesTop is at the top of viewport
+            // Check positioning 
             const topRect = servicesTop.getBoundingClientRect();
+            const middleRect = servicesMiddle.getBoundingClientRect();
+            const bottomRect = servicesBottom.getBoundingClientRect();
             if (topRect.top <= 250) {
                 textContainerTop.classList.add('visible'); 
+            } if (middleRect.top <= 250) {
                 textContainerMiddle.classList.add('visible'); 
+            } if (bottomRect.top <= 250) {
                 textContainerBottom.classList.add('visible'); 
             } else {
-                textContainerTop.classList.remove('visible'); 
-                textContainerMiddle.classList.remove('visible'); 
-                textContainerBottom.classList.remove('visible'); 
+                // Do nothing
             }
         }
 
