@@ -31,19 +31,41 @@
         </div>
     </section>
     <div class="servicesContainer" id="services">
-        <div class="servicesSection servicesTop" data-scroll-point="200">
+        <div class="servicesSection servicesTop">
             Strategic<br>
             Financial<br>
             Oversight
         </div>
-        <div class="servicesSection servicesMiddle" data-scroll-point="400">
+        <div class="textContainer textContainerTop">
+            <div class="service-content">
+                <p class="service-intro">Expanding across borders brings exciting opportunities but also complex financial challenges. Forthway Consulting specializes in transatlantic financial strategy, helping SMEs scale confidently between the UK, US, and beyond.</p>
+                
+                <h3>How We Help</h3>
+                <ul class="service-list">
+                    <li>Fractional CFO Support</li>
+                    <li>Investment & Capital Management</li>
+                    <li>Financial Planning & Analysis</li>
+                </ul>
+
+                <p class="service-outro">We are transatlantic expansion specialists, providing hands-on support to help you grow with confidence in both the UK and US.</p>
+            </div>
+        </div>
+        <div class="servicesSection servicesMiddle">
             Operational<br>
             & Compliance<br>
             Support
         </div>
-        <div class="servicesSection servicesBottom" data-scroll-point="600">
+        <div class="textContainer textContainerMiddle">
+            <h2>Middle</h2>
+            <p>Middle</p>
+        </div>
+        <div class="servicesSection servicesBottom">
             Transactional<br>
             Support
+        </div>
+        <div class="textContainer textContainerBottom">
+            <h2>Bottom</h2>
+            <p>Bottom</p>
         </div>
     </div>
 
@@ -70,28 +92,39 @@
         const servicesSections = document.querySelectorAll('.servicesSection');
         const explainerText = document.getElementById('explainer-text');
 
-        function isElementInViewport(el) {
+        function wasElementInViewport(el) {
             const rect = el.getBoundingClientRect();
             return (
-                rect.top >= 0 &&
-                rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+                rect.top >= 140
             );
         }
 
         function handleScroll() {
+            const servicesTop = document.querySelector('.servicesTop');
+            const servicesMiddle = document.querySelector('.servicesMiddle');
+            const servicesBottom = document.querySelector('.servicesBottom');
+            const textContainerTop = document.querySelector('.textContainerTop');
+            const textContainerMiddle = document.querySelector('.textContainerMiddle'); 
+            const textContainerBottom = document.querySelector('.textContainerBottom'); 
+            
             servicesSections.forEach(section => {
-                if (isElementInViewport(section)) {
+                if (wasElementInViewport(section)) {
                     section.classList.add('visible');
                 } else {
-                    section.classList.remove('visible');
+                    //  Do nothing }
                 }
             });
 
-            // Show explainer text when last section is visible
-            if (isElementInViewport(servicesSections[servicesSections.length - 1])) {
-                explainerText.style.opacity = '1';
+            // Check if servicesTop is at the top of viewport
+            const topRect = servicesTop.getBoundingClientRect();
+            if (topRect.top <= 250) {
+                textContainerTop.classList.add('visible'); 
+                textContainerMiddle.classList.add('visible'); 
+                textContainerBottom.classList.add('visible'); 
             } else {
-                explainerText.style.opacity = '0';
+                textContainerTop.classList.remove('visible'); 
+                textContainerMiddle.classList.remove('visible'); 
+                textContainerBottom.classList.remove('visible'); 
             }
         }
 

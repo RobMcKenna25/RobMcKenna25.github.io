@@ -151,7 +151,6 @@ body {
 
 .service-card {
     padding: 2rem;
-    background: var(--light-bg);
     border-radius: 5px;
     text-align: center;
 }
@@ -208,7 +207,7 @@ body {
 
 .approach-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
@@ -230,8 +229,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 100px;
+    margin-bottom: 100px;
     min-height: 80vh;
 }
 
@@ -260,6 +259,7 @@ body {
     height: 100px;
     background-color: #003366;
     clip-path: polygon(10% 0, 90% 0, 80% 100%, 20% 100%);
+    position: relative;
 }
 
 .servicesMiddle {
@@ -285,7 +285,79 @@ body {
     opacity: 0;
     text-align: center;
     margin-top: 2rem;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.servicesTop.expanded {
+    margin-bottom: 200px;
+}
+
+.servicesMiddle.expanded {
+    margin-bottom: 200px;
+}
+
+.servicesBottom.expanded {
+    margin-bottom: 200px;
+}
+
+.service-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 3px dotted var(--primary-color);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.service-intro {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.service-list {
+    margin: 1.5rem;
+}
+
+.service-list li {
+    position: relative;
+}
+
+.service-outro {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+}
+
+.textContainer {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 2s ease-in-out;
+    text-align: center;
+    color: var(--text-color);
+    padding: 0 20px;
+}
+
+.textContainer.visible {
+    opacity: 1;
+    max-height: 1000px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.textContainer::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    border-left: 2px dotted var(--primary-color);
 }
 
 @media (max-width: 768px) {
