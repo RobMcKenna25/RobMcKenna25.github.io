@@ -76,7 +76,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="servicesSection">
         <div class="section top">
             Strategic<br>
             Financial<br>
@@ -97,6 +97,15 @@
     <script>
         window.addEventListener("scroll", function () {
             let scrollPosition = window.scrollY;
+            let sections = document.querySelectorAll('[data-scroll-point]');
+            
+            sections.forEach(section => {
+                let triggerPoint = parseInt(section.dataset.scrollPoint);
+                if (scrollPosition >= triggerPoint) {
+                    section.classList.add('active'); // or whatever animation you want
+                }
+            });
+            
             let maxScroll = 100; // Adjust this value based on how much space you need for the explainer
             
             // Only animate if we haven't scrolled past maxScroll

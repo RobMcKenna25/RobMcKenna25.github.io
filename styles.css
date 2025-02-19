@@ -19,14 +19,14 @@ body {
 }
 
 .header {
-    background: var(--primary-color);
+    background: var(--dark-bg);
     color: white;
     padding: 1rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    height: 120px; /* Fixed height for header */
+    height: 140px; /* Fixed height for header */
 }
 
 .nav {
@@ -228,11 +228,11 @@ body {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    min-height: 100vh;
-    padding: 2rem 0;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    min-height: 80vh;
 }
 
 .servicesSection {
@@ -247,8 +247,8 @@ body {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(40px);
+    transition: all 1s ease;
 }
 
 .servicesSection.visible {
@@ -257,33 +257,34 @@ body {
 }
 
 .servicesTop {
-    top: 10vh;
     height: 100px;
     background-color: #003366;
     clip-path: polygon(10% 0, 90% 0, 80% 100%, 20% 100%);
 }
 
 .servicesMiddle {
-    top: calc(10vh + 100px);
     height: 150px;
     background-color: #1d5791;
     clip-path: polygon(80% 0, 20% 0, 35% 100%, 65% 100%);
 }
 
 .servicesBottom {
-    top: calc(10vh + 250px);
     height: 150px;
     background-color: #3f7fbf;
     clip-path: polygon(65% 0, 35% 0, 50% 100%, 50% 100%);
+    display: flex;
+    align-items: flex-start;
+    padding-top: 10px;
 }
 
 .servicesExplainer {
     position: relative;
-    margin-top: 40vh;
     width: 80%;
     max-width: 600px;
     font-size: 18px;
     opacity: 0;
+    text-align: center;
+    margin-top: 2rem;
     transition: opacity 0.5s ease-in-out;
 }
 
@@ -319,7 +320,8 @@ body {
     }
 
     .servicesSection {
-        font-size: 10px;
+        font-size: 14px;
+        width: 100vw;
     }
 
     .servicesExplainer {
@@ -327,5 +329,11 @@ body {
         padding: 0 20px;
         box-sizing: border-box;
         margin-top: 60vh;
+    }
+
+    .servicesBottom {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 10px;
     }
 } 

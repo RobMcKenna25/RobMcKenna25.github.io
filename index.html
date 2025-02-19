@@ -45,7 +45,6 @@
             Transactional<br>
             Support
         </div>
-        <div class="servicesExplainer" id="explainer-text">Scroll down to explore our services</div>
     </div>
 
     <section class="bottom-cta">
@@ -68,56 +67,47 @@
         });
 
         // Services scroll animation
-        const servicesContainer = document.querySelector('.servicesContainer');
         const servicesSections = document.querySelectorAll('.servicesSection');
         const explainerText = document.getElementById('explainer-text');
-        let lastScrollY = window.scrollY;
-        let ticking = false;
 
-        function updateServices() {
-            const containerRect = servicesContainer.getBoundingClientRect();
-            const containerTop = containerRect.top + window.scrollY;
-            const scrollPosition = window.scrollY;
-
-            // Only show services when container is in view
-            if (scrollPosition >= containerTop){ //&& scrollPosition < containerTop + containerRect.height) {
-                servicesSections.forEach(section => {
-                    const scrollPoint = parseInt(section.dataset.scrollPoint);
-                    if (scrollPosition > containerTop + scrollPoint) {
-                        section.classList.add('visible');
-                    } else {
-                        section.classList.remove('visible');
-                    }
-                });
-
-                // Show explainer text when all sections are visible
-                if (scrollPosition > containerTop + 600) {
-                    explainerText.style.opacity = '1';
-                } else {
-                    explainerText.style.opacity = '0';
-                }
-            } else {
-                // Hide all sections when container is not in view
-                servicesSections.forEach(section => section.classList.remove('visible'));
-                explainerText.style.opacity = '0';
-            }
-
-            ticking = false;
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+            );
         }
 
-        window.addEventListener('scroll', () => {
-            lastScrollY = window.scrollY;
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    updateServices();
-                    ticking = false;
-                });
-                ticking = true;
+        function handleScroll() {
+            servicesSections.forEach(section => {
+                if (isElementInViewport(section)) {
+                    section.classList.add('visible');
+                } else {
+                    section.classList.remove('visible');
+                }
+            });
+
+            // Show explainer text when last section is visible
+            if (isElementInViewport(servicesSections[servicesSections.length - 1])) {
+                explainerText.style.opacity = '1';
+            } else {
+                explainerText.style.opacity = '0';
             }
+        }
+
+        // Throttle scroll events
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                window.cancelAnimationFrame(scrollTimeout);
+            }
+            scrollTimeout = window.requestAnimationFrame(() => {
+                handleScroll();
+            });
         });
 
         // Initial check
-        updateServices();
+        handleScroll();
     </script>
 </body>
 </html>
