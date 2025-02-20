@@ -11,11 +11,11 @@
         <nav class="nav">
             <div class="logo">
                 <a href="index.html">
-                    <img src="Forthway.png" alt="Forthway">
+                    <img src="/static/forthway-logo.png" alt="Forthway">
                 </a>
             </div>
             <div class="nav-links">
-                <a href="index.html#services">Services</a>
+                <a href="index.html">Services</a>
                 <a href="approach.html">Approach</a>
                 <a href="team.html">Team</a>
                 <a href="contact.html">Contact</a>
@@ -30,7 +30,8 @@
             <a href="contact.html" class="cta-button">Contact Us</a>
         </div>
     </section>
-    <div class="servicesContainer" id="services">
+    <div class="servicesContainer">
+        <h1 class="section-title" style="margin-bottom: 3rem;margin-top: 3rem;" id="services-title">Our services tailored to your growth</h1>
         <div class="servicesSection servicesTop">
             Strategic<br>
             Financial<br>
@@ -38,8 +39,6 @@
         </div>
         <div class="textContainer textContainerTop">
             <div class="service-content">
-                <p class="service-intro">Expanding across borders brings exciting opportunities but also complex financial challenges. Forthway Consulting specializes in transatlantic financial strategy, helping SMEs scale confidently between the UK, US, and beyond.</p>
-                
                 <h3>How We Help</h3>
                 <ul class="service-list">
                     <li>Fractional CFO Support</li>
@@ -57,8 +56,6 @@
         </div>
         <div class="textContainer textContainerMiddle">
             <div class="service-content">
-                <p class="service-intro">Managing financial operations across borders comes with complex regulatory requirements and administrative challenges. Forthway Consulting ensures your business remains compliant and efficient as it scales between the UK, US, and beyond by providing expert support in payroll, tax compliance, and financial operations.</p>
-                
                 <h3>How We Help</h3>
                 <ul class="service-list">
                     <li>Payroll & HR Compliance</li>
@@ -75,8 +72,6 @@
         </div>
         <div class="textContainer textContainerBottom">
             <div class="service-content">
-                <p class="service-intro">When expanding your business internationally, short-term financial tasks can quickly become overwhelming. Forthway Consulting provides hands-on support for essential financial operations, ensuring compliance and accuracy without disrupting your day-to-day business.</p>
-                
                 <h3>How We Help</h3>
                 <ul class="service-list">
                     <li>Tax & Compliance Filings</li>
@@ -84,17 +79,17 @@
                     <li>Short-Term Financial Projects</li>
                 </ul>
 
-                <p class="service-outro">We handle the immediate financial tasks that need urgent attention, so you can focus on expanding with confidence, knowing the details are covered. Can't see what you need just reach out!</p>
+                <p class="service-outro">We can deal wiith those unexpected tasks requiring urgent attention, so you can focus on expanding with confidence, knowing the details are covered. Can't see what you need just reach out!</p>
             </div>
         </div>
     </div>
 
     <section class="bottom-cta">
-        <a href="approach.html" class="cta-button">Learn About Our Approach</a>
+        <a href="approach.html" class="cta-button">Learn About Our Approach → </a>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 Forthway. All rights reserved.</p>
+        <p>&copy; 2025 Forthway. All rights reserved.</p>
     </footer>
 
     <script>
@@ -120,6 +115,7 @@
         }
 
         function handleScroll() {
+            const servicesTitle = document.getElementById('services-title');
             const servicesTop = document.querySelector('.servicesTop');
             const servicesMiddle = document.querySelector('.servicesMiddle');
             const servicesBottom = document.querySelector('.servicesBottom');
@@ -136,17 +132,15 @@
             });
 
             // Check positioning 
-            const topRect = servicesTop.getBoundingClientRect();
-            const middleRect = servicesMiddle.getBoundingClientRect();
-            const bottomRect = servicesBottom.getBoundingClientRect();
+            const topRect = servicesTitle.getBoundingClientRect();
             if (topRect.top <= 250) {
                 textContainerTop.classList.add('visible'); 
-            } if (middleRect.top <= 250) {
                 textContainerMiddle.classList.add('visible'); 
-            } if (bottomRect.top <= 250) {
                 textContainerBottom.classList.add('visible'); 
-            } else {
-                // Do nothing
+            } if (topRect.top >= 200) {
+                textContainerTop.classList.remove('visible'); 
+                textContainerMiddle.classList.remove('visible'); 
+                textContainerBottom.classList.remove('visible'); 
             }
         }
 

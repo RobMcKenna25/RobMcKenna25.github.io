@@ -12,11 +12,11 @@
         <nav class="nav">
             <div class="logo">
                 <a href="index.html">
-                    <img src="Forthway.png" alt="Forthway">
+                    <img src="/static/forthway-logo.png" alt="Forthway">
                 </a>
             </div>
             <div class="nav-links">
-                <a href="index.html#services">Services</a>
+                <a href="index.html">Services</a>
                 <a href="approach.html">Approach</a>
                 <a href="team.html">Team</a>
                 <a href="contact.html">Contact</a>
@@ -30,34 +30,75 @@
             <div class="content-wrapper">
                 <div class="approach-grid">
                     <div class="approach-item">
-                        <i class="fas fa-chart-line" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                        <i class="fas fa-chart-line" style="font-size: 6rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
                         <h2>Growth Focused</h2>
                         <br>
                         <p>Dedicated to helping businesses expand and scale with strategic financial oversight and operational support tailored to their unique needs.</p>
                     </div>
                     <div class="approach-item">
-                        <i class="fas fa-handshake" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                        <i class="fas fa-handshake" style="font-size: 6rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
                         <h2>Trust & Integrity</h2>
                         <br>
                         <p>A commitment to transparent and ethical consulting, ensuring clients receive reliable and principled advice.</p>
                     </div>
                     <div class="approach-item">
-                        <i class="fas fa-users" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                        <i class="fas fa-users" style="font-size: 6rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
                         <h2>Client-Centric</h2>
                         <br>
                         <p>Work with real experts who take the time to understand your business, providing personalized support rather than a rotating panel of advisors.</p>
                     </div>
+                </div>
             </div>
         </section>
 
+        <section class="case-studies">
+            <h2 class="case-studies-title">Companies We've Helped Grow</h2>
+            <div class="logo-scroll">
+                <div class="logo-container">
+                    <img class="logo-image" src="/static/athenaSmartcardSolutions-logo.jpg" alt="Athena Smartcard Solutions" data-company="1">
+                    <img class="logo-image" src="/static/hybletech-logo.jpeg" alt="hyble Tech" data-company="2">
+                    <img class="logo-image" src="/static/touchBionics-logo.jpeg" alt="Touch Bionics" data-company="3">
+                    <img class="logo-image" src="/static/voxar-logo.jpg" alt="Voxar" data-company="4">
+                    <img class="logo-image" src="/static/waveRX-logo.jpg" alt="WaveRX" data-company="5">
+                    <img class="logo-image" src="/static/zixi-logo.jpeg" alt="Zixi" data-company="6">
+                </div>
+                <p class="case-studies-text">Click a logo to learn more</p>
+            </div>
+        </section>
+
+        <!-- Modal Structure -->
+        <div class="modal active" id="caseStudyModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="case-study-content">
+                    <h2 class="case-study-title"></h2>
+                    <div class="case-study-details">
+                        <div class="case-study-challenge">
+                            <h3>Challenge</h3>
+                            <p></p>
+                        </div>
+                        <div class="case-study-solution">
+                            <h3>Solution</h3>
+                            <p></p>
+                        </div>
+                        <div class="case-study-results">
+                            <h3>Results</h3>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <section class="bottom-cta">
-            <a href="team.html" class="cta-button">Meet the Team</a>
+            <a href="team.html" class="cta-button">Meet the Team → </a>
         </section>
 
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 Forthway. All rights reserved.</p>
+        <p>&copy; 2025 Forthway. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html> 
