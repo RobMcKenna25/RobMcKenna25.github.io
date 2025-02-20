@@ -201,6 +201,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 6rem 2rem;
     background: var(--light-bg);
 }
@@ -812,7 +813,7 @@ body {
 .landing-page {
     min-height: 100vh;
     background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)),
-                url('/static/Forth.jpg');  /* Add background image */
+                url('/static/forth.jpg');  /* Add background image */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
