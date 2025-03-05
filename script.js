@@ -4,8 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Clone logos for infinite scroll
     const logoContainer = document.querySelector('.logo-container');
     if (logoContainer) {
-        const logoSet = logoContainer.innerHTML;
-        logoContainer.innerHTML = logoSet + logoSet + logoSet;
+        const originalLogos = logoContainer.innerHTML;
+        // Clone multiple times to ensure smooth infinite scroll
+        logoContainer.innerHTML = originalLogos + originalLogos + originalLogos + originalLogos;
 
         // Pause animation on hover
         logoContainer.addEventListener('mouseenter', () => {
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
             title: 'Voxar',
             challenge: 'Structuring finances to facilitate an acquisition while ensuring continued investment in medical imaging innovation.',
             solution: 'Created a robust financial due diligence package, identified cost-saving opportunities, and optimized financial reporting for potential buyers.',
-            results: 'Secured a successful acquisition by Barco, with Voxar’s technology integrated into a global leader in medical imaging solutions.'
+            results: 'Secured a successful acquisition by Barco, with Voxar's technology integrated into a global leader in medical imaging solutions.'
         },
         '5': {
             title: 'Wave RX',
@@ -55,6 +56,23 @@ document.addEventListener("DOMContentLoaded", () => {
             results: 'Achieved profitability while scaling operations, enabling Zixi to become a leading provider of high-quality video streaming technology.'
         }
     };
+
+    // Clone testimonials for infinite scroll
+    const testimonialsContainer = document.querySelector('.testimonials-container');
+    if (testimonialsContainer) {
+        const originalTestimonials = testimonialsContainer.innerHTML;
+        // Clone multiple times to ensure smooth infinite scroll
+        testimonialsContainer.innerHTML = originalTestimonials + originalTestimonials + originalTestimonials + originalTestimonials;
+
+        // Pause animation on hover
+        testimonialsContainer.addEventListener('mouseenter', () => {
+            testimonialsContainer.style.animationPlayState = 'paused';
+        });
+
+        testimonialsContainer.addEventListener('mouseleave', () => {
+            testimonialsContainer.style.animationPlayState = 'running';
+        });
+    }
 
     function openModal(companyId) {
         console.log('Opening modal for:', companyId);
@@ -112,12 +130,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Click outside modal to close
     caseStudyModal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+        if (e.target === caseStudyModal) closeModal();
     });
 
     // Escape key to close
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
+        if (e.key === 'Escape' && caseStudyModal.classList.contains('active')) {
             closeModal();
         }
     });
