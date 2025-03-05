@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoContainer = document.querySelector('.logo-container');
     if (logoContainer) {
         const logoSet = logoContainer.innerHTML;
-        logoContainer.innerHTML = logoSet + logoSet + logoSet + logoSet + logoSet + logoSet;
+        logoContainer.innerHTML = logoSet + logoSet + logoSet + logoSet + logoSet + logoSet + logoSet + logoSet + logoSet + logoSet + logoSet;
 
         // Pause animation on hover
         logoContainer.addEventListener('mouseenter', () => {
