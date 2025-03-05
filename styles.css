@@ -513,8 +513,9 @@ body {
 }
 .logo-image {
     height: 80px;
-    width: auto;
-    object-fit: contain;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50%;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
